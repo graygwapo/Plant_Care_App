@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:plant_care/register.dart';
 
 void main() => runApp(const MyApp());
@@ -93,7 +92,7 @@ class MyHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 600),
+              const SizedBox(height: 500),
               ElevatedButton(
                 child: const Text(
                   'Scan QR Code',

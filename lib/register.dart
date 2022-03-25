@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:plant_care/main.dart';
 
 void main() {
   runApp(const Register());
@@ -18,21 +19,48 @@ class Register extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           iconTheme: const IconThemeData(color: Colors.green),
-          flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      // ignore: prefer_const_literals_to_create_immutables
-                      colors: <Color>[
-                Color.fromARGB(255, 255, 255, 255),
-                Color.fromARGB(255, 255, 255, 255)
-              ]))),
+          actions: <Widget>[
+            IconButton(
+                icon: const Icon(Icons.close),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const MyApp()),
+                  );
+                }),
+          ],
+          backgroundColor: Colors.transparent,
+          bottomOpacity: 0.0,
           title: const Text('Register New Plant',
               style: TextStyle(color: Color.fromARGB(255, 14, 199, 70))),
+          elevation: 0,
         ),
-        body: const Center(
-          child: Text('Input Fields Soon to Rise here'),
+        body: Container(
+          margin: const EdgeInsets.all(24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter a search term',
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Enter your username',
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
